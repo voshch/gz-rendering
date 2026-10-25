@@ -61,6 +61,7 @@
 
 #include <gz/common/Image.hh>
 
+#include "Ogre2SharedFullscreenRects.hh"
 #include "Terra/Terra.h"
 
 namespace gz
@@ -740,6 +741,7 @@ void Ogre2ThermalCamera::Destroy()
         this->dataPtr->ogreCompositorWorkspace);
   }
 
+  ReleaseSharedFullscreenRects(ogreRoot);
   if (this->dataPtr->thermalMaterial)
   {
     Ogre::MaterialManager::getSingleton().remove(

@@ -40,6 +40,7 @@
 #include "gz/rendering/ogre2/Ogre2Sensor.hh"
 
 #include "Ogre2ParticleNoiseListener.hh"
+#include "Ogre2SharedFullscreenRects.hh"
 
 #ifdef _MSC_VER
   #pragma warning(push, 0)
@@ -339,6 +340,7 @@ void Ogre2DepthCamera::Destroy()
     this->dataPtr->particleTargetDef = nullptr;
   }
 
+  ReleaseSharedFullscreenRects(ogreRoot);
   if (this->dataPtr->depthMaterial)
   {
     Ogre::MaterialManager::getSingleton().remove(
